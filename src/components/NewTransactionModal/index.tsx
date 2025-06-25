@@ -1,6 +1,6 @@
-import { ArrowCircleDown, ArrowCircleUp, X } from 'phosphor-react'
 import type { FormEvent } from 'react'
 import * as Dialog from '@radix-ui/react-dialog'
+import { ArrowCircleDown, ArrowCircleUp, X } from 'phosphor-react'
 
 import * as S from './styles'
 
