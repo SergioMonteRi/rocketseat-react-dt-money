@@ -1,4 +1,4 @@
-import { Header, Summary } from '@/components'
+import { Header, SearchForm, Summary } from '@/components'
 
 import * as S from './styles'
 
@@ -9,6 +9,7 @@ export const Transactions = () => {
       <Summary />
 
       <S.TransactionsContainer>
+        <SearchForm />
         <S.TransactionsTable>
           <tbody>
             <tr>
