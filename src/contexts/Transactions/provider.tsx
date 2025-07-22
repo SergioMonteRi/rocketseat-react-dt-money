@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react'
 
+import { api } from '@/api'
+
 import type { Transaction } from './types'
 
 import { TransactionContext } from './contex'
@@ -12,16 +14,13 @@ export function TransactionsProvider({
   const [transactions, setTransactions] = useState<Transaction[]>([])
 
   async function fetchTransactions(query?: string) {
-    const url = new URL('http://localhost:3333/transactions')
+    const response = await api.get('/transactions', {
+      params: {
+        q: query,
+      },
+    })
 
-    if (query) {
-      url.searchParams.set('q', query)
-    }
-
-    const response = await fetch(url)
-    const data = await response.json()
-
-    setTransactions(data)
+    setTransactions(response.data)
   }
 
   useEffect(() => {
