@@ -31,6 +31,22 @@
       "category": "venda",
       "price": 5000,
       "createdAt": "2025-06-26T15:06:42.740Z"
+    },
+    {
+      "description": "Academia",
+      "price": 89,
+      "category": "Saúde",
+      "type": "outcome",
+      "createdAt": "2025-07-22T21:03:13.141Z",
+      "id": 5
+    },
+    {
+      "description": "Sistema Petro",
+      "price": 5000,
+      "category": "Free lance",
+      "type": "income",
+      "createdAt": "2025-07-22T21:12:19.283Z",
+      "id": 6
     }
   ]
 }

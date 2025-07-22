@@ -1,7 +1,10 @@
-import { Controller, useForm } from 'react-hook-form'
 import * as Dialog from '@radix-ui/react-dialog'
+
 import { zodResolver } from '@hookform/resolvers/zod'
+import { Controller, useForm } from 'react-hook-form'
 import { ArrowCircleDown, ArrowCircleUp, X } from 'phosphor-react'
+
+import { useTransactionsContext } from '@/contexts'
 
 import { newTransactionModalSchema } from './schema'
 
@@ -10,17 +13,22 @@ import * as S from './styles'
 import type { NewTransactionModalInputs } from './types'
 
 export const NewTransactionModal = () => {
+  const { createTransaction } = useTransactionsContext()
+
   const {
     control,
     register,
     handleSubmit,
+    reset,
     formState: { isSubmitting },
   } = useForm<NewTransactionModalInputs>({
     resolver: zodResolver(newTransactionModalSchema),
   })
 
-  const handleCreateTransaction = (data: NewTransactionModalInputs) => {
-    console.log(data)
+  const handleCreateTransaction = async (data: NewTransactionModalInputs) => {
+    await createTransaction(data)
+
+    reset()
   }
 
   return (
