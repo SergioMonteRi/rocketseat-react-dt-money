@@ -9,4 +9,5 @@ export interface Transaction {
 
 export interface TransactionContextType {
   transactions: Transaction[]
+  fetchTransactions: (query?: string) => Promise<void>
 }
