@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import { useForm } from 'react-hook-form'
 import { MagnifyingGlass } from 'phosphor-react'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -10,7 +11,7 @@ import type { SearchFormInputs } from './types'
 
 import * as S from './styles'
 
-export const SearchForm = () => {
+const SearchFormComponent = () => {
   const { fetchTransactions } = useTransactionsContext()
 
   const {
@@ -40,3 +41,5 @@ export const SearchForm = () => {
     </S.SearchFormContainer>
   )
 }
+
+export const SearchForm = memo(SearchFormComponent)
